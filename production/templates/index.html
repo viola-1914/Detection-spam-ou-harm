@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <title>Is't a Spam ?</title>
+    <link rel="stylesheet" href="/static/css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      {% if pred == "" %}
+      <h1>Welcome on Spam predictor</h1>
+      {% else %}
+      <h1>Spam predictor</h1>
+      {% endif %}
+      <form method="post" action="/api/predict">
+        <lable>Entrer un texte:</lable>
+        <input type="text" name="mail" />
+        <br /><br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button type="submit">Predict</button>
+      </form>
+
+      <!-- <p>My father is see. I need a help please</p>
+        <a href="/api/predict?mail=My father is sick. I need a help please">Clic ici pour voir ci c'est un Spam ou un Not Spam</a> -->
+      {% if pred != "" %}
+      <p>Result: {{pred}}</p>
+      {% endif %}
+    </div>
+  </body>
+</html>
